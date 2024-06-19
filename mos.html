@@ -316,7 +316,9 @@
                     localStorage.setItem('divineQueenActive', !isActive);
                     updateDivineQueenStatus();
                 } else {
-                    alert('ابتدا باید  حوری را خریداری کنید.');
+                    window.Telegram.WebApp.showAlert('ابتدا حوری را خریداری کن.')
+                    
+                    //alert('ابتدا باید  حوری را خریداری کنید.');
                 }
             }
 
