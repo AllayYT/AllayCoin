@@ -193,7 +193,7 @@
                 const balance = parseInt(localStorage.getItem('userScore')) || 0;
                 if (type === 'divine-queen' && balance >= 5000) {
                     localStorage.setItem('userScore', balance - 5000);
-                    alert('افزایش رزق و روزی خریداری شد! از این پس به ازای هر دقیقه عدم فعالیت، 10 ذکر دریافت خواهید کرد.');
+                    Telegram.WebApp.showAlert('افزایش رزق و روزی خریداری شد! از این پس به ازای هر دقیقه عدم فعالیت، 10 ذکر دریافت خواهید کرد.');
                     localStorage.setItem('divineQueenPurchased', true);
                     localStorage.setItem('divineQueenActive', true);
                     localStorage.setItem('lastVisit', new Date().getTime());
@@ -251,8 +251,7 @@
                         document.getElementById('increase-refill-speed-price').textContent = '';
                     }
                 } else {
-                    window.Telegram.WebApp.showAlert('به درستی کار میکند!!!!!')
-                    alert('موجودی کافی نیست یا لول به حداکثر رسیده است.');
+                    Telegram.WebApp.showAlert('موجودی کافی نیست یا لول به حداکثر رسیده است.');
                 }
             }
 
@@ -316,9 +315,7 @@
                     localStorage.setItem('divineQueenActive', !isActive);
                     updateDivineQueenStatus();
                 } else {
-                    window.Telegram.WebApp.showAlert('ابتدا حوری را خریداری کن.')
-                    
-                    //alert('ابتدا باید  حوری را خریداری کنید.');
+                    Telegram.WebApp.showAlert('ابتدا باید  حوری را خریداری کنید.');
                 }
             }
 
