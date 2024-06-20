@@ -48,7 +48,7 @@
             border: 2px solid #4CAF50;
         }
     </style>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
 </head>
 <body class="bg-gradient-to-b from-black to-gray-800 text-white font-morabba min-h-screen flex flex-col items-center p-4">
     <div class="w-full max-w-sm">
@@ -130,6 +130,7 @@
         <button id="back-button" class="back-button">بازگشت به صفحه اصلی</button>
     </div>
     <script>
+        Telegram.WebApp.ready();
         document.addEventListener('DOMContentLoaded', () => {
             // نمایش موجودی
             document.getElementById('balance').textContent = localStorage.getItem('userScore') || 0;
@@ -193,7 +194,7 @@
                 const balance = parseInt(localStorage.getItem('userScore')) || 0;
                 if (type === 'divine-queen' && balance >= 5000) {
                     localStorage.setItem('userScore', balance - 5000);
-                    window.Telegram.WebApp.showAlert('افزایش رزق و روزی خریداری شد! از این پس به ازای هر دقیقه عدم فعالیت، 10 ذکر دریافت خواهید کرد.');
+                    Telegram.WebApp.showAlert('افزایش رزق و روزی خریداری شد! از این پس به ازای هر دقیقه عدم فعالیت، 10 ذکر دریافت خواهید کرد.');
                     localStorage.setItem('divineQueenPurchased', true);
                     localStorage.setItem('divineQueenActive', true);
                     localStorage.setItem('lastVisit', new Date().getTime());
@@ -251,7 +252,7 @@
                         document.getElementById('increase-refill-speed-price').textContent = '';
                     }
                 } else {
-                    window.Telegram.WebApp.showAlert('موجودی کافی نیست یا لول به حداکثر رسیده است.');
+                    Telegram.WebApp.showAlert('موجودی کافی نیست یا لول به حداکثر رسیده است.');
                 }
             }
 
@@ -315,7 +316,7 @@
                     localStorage.setItem('divineQueenActive', !isActive);
                     updateDivineQueenStatus();
                 } else {
-                    window.Telegram.WebApp.showAlert('ابتدا باید  حوری را خریداری کنید.');
+                    Telegram.WebApp.showAlert('ابتدا باید  حوری را خریداری کنید.');
                 }
             }
 
